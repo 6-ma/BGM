@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "code": "#include <stdio.h>\n\nint main() {\n    int a = 5;\n    int b = 3;\n    printf(\"%d\", a + b);\n    return 0;\n}",
+        "options": [
+            "8",
+            "53",
+            "2",
+            "Error"
+        ],
+        "answer": "8"
+    },
+    {
+        "id": 2,
+        "code": "#include <stdio.h>\n\nint main() {\n    int i;\n    for(i = 0; i < 3; i++) {\n        printf(\"%d\", i);\n    }\n    return 0;\n}",
+        "options": [
+            "123",
+            "012",
+            "0123",
+            "Infinite Loop"
+        ],
+        "answer": "012"
+    },
+    {
+        "id": 3,
+        "code": "#include <stdio.h>\n\nint main() {\n    int x = 10;\n    if (x > 5) {\n        printf(\"A\");\n    } else {\n        printf(\"B\");\n    }\n    return 0;\n}",
+        "options": [
+            "A",
+            "B",
+            "AB",
+            "Nothing"
+        ],
+        "answer": "A"
+    },
+    {
+        "id": 4,
+        "code": "#include <stdio.h>\n\nint main() {\n    int arr[] = {1, 2, 3};\n    printf(\"%d\", arr[1]);\n    return 0;\n}",
+        "options": [
+            "1",
+            "2",
+            "3",
+            "Error"
+        ],
+        "answer": "2"
+    },
+    {
+        "id": 5,
+        "code": "#include <stdio.h>\n\nint main() {\n    int x = 0;\n    while(x < 2) {\n        printf(\"%d\", x);\n        x++;\n    }\n    return 0;\n}",
+        "options": [
+            "01",
+            "012",
+            "12",
+            "Infinite Loop"
+        ],
+        "answer": "01"
+    },
+    {
+        "id": 6,
+        "code": "#include <stdio.h>\n\nint main() {\n    int a = 10, b = 20;\n    printf(\"%d\", a > b ? a : b);\n    return 0;\n}",
+        "options": [
+            "10",
+            "20",
+            "30",
+            "0"
+        ],
+        "answer": "20"
+    },
+    {
+        "id": 7,
+        "code": "#include <stdio.h>\n\nint main() {\n    int x = 5;\n    printf(\"%d\", x++);\n    printf(\"%d\", x);\n    return 0;\n}",
+        "options": [
+            "56",
+            "66",
+            "55",
+            "65"
+        ],
+        "answer": "56"
+    },
+    {
+        "id": 8,
+        "code": "#include <stdio.h>\n\nvoid func() {\n    static int x = 0;\n    x++;\n    printf(\"%d\", x);\n}\n\nint main() {\n    func();\n    func();\n    return 0;\n}",
+        "options": [
+            "11",
+            "12",
+            "01",
+            "00"
+        ],
+        "answer": "12"
+    },
+    {
+        "id": 9,
+        "code": "#include <stdio.h>\n\nint main() {\n    int x = 1;\n    switch(x) {\n        case 1: printf(\"1\");\n        case 2: printf(\"2\"); break;\n        default: printf(\"3\");\n    }\n    return 0;\n}",
+        "options": [
+            "1",
+            "12",
+            "123",
+            "Error"
+        ],
+        "answer": "12"
+    },
+    {
+        "id": 10,
+        "code": "#include <stdio.h>\n\nint main() {\n    int a = 5;\n    int *p = &a;\n    printf(\"%d\", *p);\n    return 0;\n}",
+        "options": [
+            "address of a",
+            "5",
+            "undefined",
+            "0"
+        ],
+        "answer": "5"
+    }
+]

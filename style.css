@@ -1,0 +1,242 @@
+:root {
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --primary-color: #cfcfcf;
+  --secondary-color: #03dac6;
+  --error-color: #cf6679;
+  --on-bg: #ffffff;
+  --on-surface: #e1e1e1;
+  --choice-bg: #2c2c2c;
+  --choice-hover: #3c3c3c;
+  --transition-speed: 0.3s;
+  --font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--on-bg);
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#app-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--on-surface);
+  text-align: center;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--on-surface);
+  margin-bottom: 1.5rem;
+}
+
+/* Card */
+.card {
+  background-color: var(--surface-color);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-speed), opacity var(--transition-speed);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #000;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(187, 134, 252, 0.4);
+  /* Matches primary-color roughly */
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Code Block */
+pre {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  /* Ensure rounded corners clip content */
+  border: 1px solid #333;
+}
+
+code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 1.1rem;
+  /* Background handled by highlight.js theme */
+}
+
+/* Options */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.option-btn {
+  background-color: var(--choice-bg);
+  border: 2px solid transparent;
+  color: var(--on-surface);
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.option-btn:hover {
+  background-color: var(--choice-hover);
+  border-color: var(--primary-color);
+}
+
+.option-btn:active {
+  background-color: var(--primary-color);
+  color: #000;
+}
+
+/* Progress-like indicator or top status */
+#bgm-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.8rem;
+  color: #555;
+  display: none;
+  /* Hidden by default, useful for debug or subtle indication */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Results Text Area */
+#results-text {
+  width: 100%;
+  height: 150px;
+  background-color: #000;
+  color: var(--secondary-color);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  resize: none;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+}
+
+#results-text:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+
+/* Start Screen Button Group */
+.start-button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Circular Icon Button */
+.btn-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.btn-icon:hover {
+  background-color: var(--primary-color);
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(187, 134, 252, 0.4);
+}
+
+.btn-icon svg {
+  display: block;
+}

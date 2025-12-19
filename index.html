@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGMの歌詞の有無が集中力に与える影響の測定実験</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="bgm-status">BGM: <span id="bgm-type">None</span></div>
+
+    <div id="app-container">
+
+        <!-- View 1: Welcome / Instructions -->
+        <div id="view-welcome" class="card fade-in">
+            <h1>BGMの歌詞の有無が集中力に与える影響の測定実験</h1>
+            <p>
+                本実験にご協力いただきありがとうございます。<br>
+                これから表示されるC言語のコードを読み、その実行結果として正しいものを選択してください。
+            </p>
+            <p>
+                <strong>ヘッドフォンまたはイヤホンを着用してください。</strong><br>
+                実験を開始すると、自動的にBGMが再生されます。<br>
+                右下のボタンを押すとBGMの音量を確認できます。
+            </p>
+            <div class="start-button-group">
+                <button id="btn-start" class="btn">実験を開始する</button>
+                <button id="btn-test-audio" class="btn-icon" aria-label="音量確認">
+                    <svg id="icon-play" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <svg id="icon-stop" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+                        style="display:none;">
+                        <path d="M6 6h12v12H6z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- View: Wait -->
+        <div id="view-wait" class="card hidden">
+            <h2>待機画面</h2>
+            <p>テスト開始まで少々お待ちください。</p>
+            <div id="countdown"
+                style="font-size: 3rem; font-weight: 700; text-align: center; color: var(--primary-color);">10</div>
+        </div>
+
+        <!-- View 2: Quiz -->
+        <div id="view-quiz" class="card hidden">
+            <h2 id="question-tracker">第 1 問 / 10</h2>
+            <pre><code id="code-display">
+// ここにコードが表示されます
+            </code></pre>
+            <div id="options-container" class="options-grid">
+                <!-- Options will be injected here -->
+            </div>
+        </div>
+
+        <!-- View 3: Results -->
+        <div id="view-results" class="card hidden">
+            <h1>実験終了</h1>
+            <p>ご協力ありがとうございました。</p>
+            <p>以下の結果コードをコピーして、Googleフォームに貼り付けてください。</p>
+
+            <textarea id="results-text" readonly></textarea>
+
+            <div class="button-group">
+                <button id="btn-copy" class="btn">クリップボードにコピー</button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSenZUFIw2mG5eCkWmJLs6Ozq3OZdBR7ujomYTt1J7Ip6NYapQ/viewform?usp=publish-editor"
+                    target="_blank" class="btn">Googleフォームへ移動</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bgm-player" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
