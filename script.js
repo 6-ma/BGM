@@ -37,7 +37,8 @@ const countdownEl = document.getElementById('countdown');
 // Initialization
 async function init() {
     // 1. Random Assignment
-    const isLyrics = Math.random() < 0.5;
+    // const isLyrics = Math.random() < 0.5;
+    const isLyrics=1;
     state.condition = isLyrics ? 'Lyrics' : 'No Lyrics';
 
     // Set Audio Source
